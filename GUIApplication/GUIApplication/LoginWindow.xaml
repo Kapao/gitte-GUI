@@ -1,0 +1,13 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ServiceReference="clr-namespace:GUIApplication.ServiceReference" x:Class="GUIApplication.LoginWindow"
+        Title="LoginWindow" Height="300" Width="350">
+    <Grid>
+        <ComboBox x:Name="cbLogIn" IsEditable="True" Text="Bruger" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Margin="10,36,0,0" Loaded="cbLogIn_Loaded"/>
+        <Label Content="Vælg bruger og indtast kode" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <PasswordBox x:Name="pbLogIn" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,63,0,0" Width="200"/>
+        <Button x:Name="btLogIn" Content="Log ind" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Margin="10,86,0,0" Click="btLogIn_Click"/>
+
+    </Grid>
+</Window>

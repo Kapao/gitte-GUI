@@ -1,0 +1,18 @@
+﻿<Window x:Class="GUIApplication.ShowSellerTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ShowSellerTest" Height="359" Width="504">
+    <Grid>
+        <DataGrid x:Name="sellerData" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Loaded="sellerData_Loaded">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}" />
+                <DataGridTextColumn Header="Postnummer" Binding="{Binding Location.ZipCode}" />
+                <DataGridTextColumn Header="By" Binding="{Binding Location.City}" />
+                <DataGridTextColumn Header="Telefon" Binding="{Binding Phone}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

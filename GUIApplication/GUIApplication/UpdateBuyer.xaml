@@ -1,0 +1,50 @@
+﻿<Window x:Class="GUIApplication.UpdateBuyer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rediger køber" Height="388" Width="1002">
+    <Grid>
+        <Label Content="Kontaktoplysninger" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtName"  HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" Text="Navn" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="23" Margin="10,69,0,0" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtZipCode"  LostFocus="txtZipCode_LostFocus" HorizontalAlignment="Left" Height="23" Margin="10,97,0,0" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPhone"  HorizontalAlignment="Left" Height="23" Margin="10,125,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.292,0.348"/>
+        <TextBox x:Name="txtMobile" HorizontalAlignment="Left" Height="23" Margin="115,125,0,0" TextWrapping="Wrap" Text="Mobil" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="10,153,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="200" RenderTransformOrigin="-0.267,-0.13"/>
+        <TextBox x:Name="txtMisc"   HorizontalAlignment="Left" Height="23" Margin="10,181,0,0" TextWrapping="Wrap" Text="Diverse" VerticalAlignment="Top" Width="200"/>
+        <Label x:Name="lblCity" Content="By" HorizontalAlignment="Left" Margin="135,93,0,0" VerticalAlignment="Top"/>
+        <Button Content="Gem og Afslut" HorizontalAlignment="Left" Margin="818,327,0,0" VerticalAlignment="Top" Width="86" Click="BtnUpdate"/>
+        <Button Content="Annuller" HorizontalAlignment="Left" Margin="909,327,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel"/>
+        <Label Content="Kontantpris" HorizontalAlignment="Left" Margin="266,37,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPriceMin" HorizontalAlignment="Left" Height="23" Margin="361,40,0,0" GotFocus="txtPriceMin_GotFocus" TextWrapping="Wrap" Text="Pris fra" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtPriceMax" HorizontalAlignment="Left" Height="23" Margin="468,40,0,0" GotFocus="txtPriceMax_GotFocus" TextWrapping="Wrap" Text="Pris til" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtPropertyMin" HorizontalAlignment="Left" Height="23" Margin="361,68,0,0" GotFocus="txtPropertyMin_GotFocus" TextWrapping="Wrap" Text="Boligareal fra" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtRoomsMin" HorizontalAlignment="Left" Height="23" Margin="361,96,0,0" GotFocus="txtRoomsMin_GotFocus" TextWrapping="Wrap" Text="Værelser fra" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtLotMin" HorizontalAlignment="Left" Height="23" Margin="361,124,0,0" GotFocus="txtLotMin_GotFocus" TextWrapping="Wrap" Text="Grundareal fra" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtPropertyMax" HorizontalAlignment="Left" Height="23" Margin="468,68,0,0" GotFocus="txtPropertyMax_GotFocus" TextWrapping="Wrap" Text="Boligareal til" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtRoomsMax" HorizontalAlignment="Left" Height="23" Margin="468,96,0,0" GotFocus="txtRoomsMax_GotFocus" TextWrapping="Wrap" Text="Værelser til" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtLotMax" HorizontalAlignment="Left" Height="23" Margin="468,124,0,0" GotFocus="txtLotMax_GotFocus" TextWrapping="Wrap" Text="Grundareal til" VerticalAlignment="Top" Width="85"/>
+        <Label Content="Boligareal" HorizontalAlignment="Left" Margin="266,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Værelser" HorizontalAlignment="Left" Margin="268,92,0,0" VerticalAlignment="Top"/>
+        <Label Content="Grundareal" HorizontalAlignment="Left" Margin="266,120,0,0" VerticalAlignment="Top"/>
+        <Label Content="Postnr, by eller kommune" HorizontalAlignment="Left" Margin="266,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,0.308"/>
+        <TextBox x:Name="txtLocation" HorizontalAlignment="Left" Height="23" Margin="468,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label Content="Særlige ønsker til boligen (vises på hjemmesiden)" HorizontalAlignment="Left" Margin="266,179,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMisc_Copy" HorizontalAlignment="Left" Height="97" Margin="268,210,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285"/>
+        <Label Content="Bolig som søges" HorizontalAlignment="Left" Margin="266,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Notater" HorizontalAlignment="Left" Margin="627,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNotes" HorizontalAlignment="Left" Height="82" Margin="627,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="333"/>
+        <Label Content="Er du registreret i RKI?" HorizontalAlignment="Left" Margin="627,128,0,0" VerticalAlignment="Top"/>
+        <Label Content="Er du købergodkendt?" HorizontalAlignment="Left" Margin="627,159,0,0" VerticalAlignment="Top"/>
+        <Label Content="Hvis ja, i" HorizontalAlignment="Left" Margin="627,190,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name ="txtBank" HorizontalAlignment="Left" Height="23" Margin="685,194,0,0" TextWrapping="Wrap" Text="Bank" VerticalAlignment="Top" Width="100"/>
+        <Label Content="til" HorizontalAlignment="Left" Margin="790,190,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtApprovedAmount" HorizontalAlignment="Left" Height="23" Margin="815,194,0,0" TextWrapping="Wrap" Text="Beløb" VerticalAlignment="Top" Width="80"/>
+        <Label Content="Har du solgt din nuværende bolig?" HorizontalAlignment="Left" Margin="627,222,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bor du til leje?" HorizontalAlignment="Left" Margin="627,253,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkInRKI"  HorizontalAlignment="Left" Margin="841,134,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBuyerApproved" HorizontalAlignment="Left" Margin="841,165,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkOwner"  HorizontalAlignment="Left" Margin="841,228,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkRents"  HorizontalAlignment="Left" Margin="841,259,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

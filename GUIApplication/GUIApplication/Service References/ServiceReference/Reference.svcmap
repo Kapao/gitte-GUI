@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7a09e675-aefc-4f41-88ab-b4682acf8df0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfServiceLib/Service/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="64c2c7a6-ef39-4418-b379-15b1141a3579" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServiceLib/Service/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="40613bf3-8b36-4261-beb3-876f7e20c95a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServiceLib/Service/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="82bdbc40-2c31-4dac-91c9-ff9a05dd9fe0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServiceLib/Service/mex" />
+    <MetadataFile FileName="ModelLayer.xsd" MetadataType="Schema" ID="10874b5c-cfb8-469e-a2c8-7e040b5aebed" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServiceLib/Service/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

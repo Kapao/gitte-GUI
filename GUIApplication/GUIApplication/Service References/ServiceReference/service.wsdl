@@ -1,0 +1,818 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ModelLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_InsertAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAppointment" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertAppointment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointment" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppointment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllAppointments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAppointments" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllAppointments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAppointment" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateAppointment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAppointment" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteAppointment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBuyerByPhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyerByPhone" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBuyerByPhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyerByPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBuyerByMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyerByMobile" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBuyerByMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyerByMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllBuyers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBuyers" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllBuyers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBuyersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocationsByPhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsByPhone" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocationsByPhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsByPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocationsByMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsByMobile" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocationsByMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsByMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPropertiesByPhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPropertiesByPhone" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPropertiesByPhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPropertiesByPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPropertiesByMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPropertiesByMobile" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPropertiesByMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPropertiesByMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLocationsByCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationsByCity" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLocationsByCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationsByCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocations" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertiesByAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertiesByAddress" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertiesByAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertiesByAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProperties" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProperty" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyBySellerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyBySellerID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPropertyBySellerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyBySellerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSeller" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSellerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSellerById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSellerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSellerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSellerByPhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSellerByPhone" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSellerByPhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSellerByPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSellerByMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSellerByMobile" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSellerByMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSellerByMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllSellers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSellers" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllSellers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSellersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSeller" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSeller" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPropertyToSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPropertyToSeller" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPropertyToSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPropertyToSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPropertiesFromSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPropertiesFromSeller" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPropertiesFromSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPropertiesFromSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserUserByPhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserUserByPhone" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserUserByPhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserUserByPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="InsertAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertAppointment" message="tns:IService_InsertAppointment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertAppointmentResponse" message="tns:IService_InsertAppointment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAppointment" message="tns:IService_GetAppointment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAppointmentResponse" message="tns:IService_GetAppointment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAppointments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllAppointments" message="tns:IService_GetAllAppointments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllAppointmentsResponse" message="tns:IService_GetAllAppointments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateAppointment" message="tns:IService_UpdateAppointment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateAppointmentResponse" message="tns:IService_UpdateAppointment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteAppointment" message="tns:IService_DeleteAppointment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteAppointmentResponse" message="tns:IService_DeleteAppointment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBuyer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertBuyer" message="tns:IService_InsertBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertBuyerResponse" message="tns:IService_InsertBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerByPhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBuyerByPhone" message="tns:IService_GetBuyerByPhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBuyerByPhoneResponse" message="tns:IService_GetBuyerByPhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerByMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBuyerByMobile" message="tns:IService_GetBuyerByMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBuyerByMobileResponse" message="tns:IService_GetBuyerByMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBuyers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllBuyers" message="tns:IService_GetAllBuyers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllBuyersResponse" message="tns:IService_GetAllBuyers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsByPhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllLocationsByPhone" message="tns:IService_GetAllLocationsByPhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllLocationsByPhoneResponse" message="tns:IService_GetAllLocationsByPhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsByMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllLocationsByMobile" message="tns:IService_GetAllLocationsByMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllLocationsByMobileResponse" message="tns:IService_GetAllLocationsByMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPropertiesByPhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPropertiesByPhone" message="tns:IService_GetAllPropertiesByPhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllPropertiesByPhoneResponse" message="tns:IService_GetAllPropertiesByPhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPropertiesByMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPropertiesByMobile" message="tns:IService_GetAllPropertiesByMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllPropertiesByMobileResponse" message="tns:IService_GetAllPropertiesByMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBuyer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateBuyer" message="tns:IService_UpdateBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateBuyerResponse" message="tns:IService_UpdateBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBuyer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteBuyer" message="tns:IService_DeleteBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteBuyerResponse" message="tns:IService_DeleteBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertLocation" message="tns:IService_InsertLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertLocationResponse" message="tns:IService_InsertLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetLocation" message="tns:IService_GetLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetLocationResponse" message="tns:IService_GetLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationsByCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetLocationsByCity" message="tns:IService_GetLocationsByCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetLocationsByCityResponse" message="tns:IService_GetLocationsByCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllLocations" message="tns:IService_GetAllLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllLocationsResponse" message="tns:IService_GetAllLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateLocation" message="tns:IService_UpdateLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateLocationResponse" message="tns:IService_UpdateLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteLocation" message="tns:IService_DeleteLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteLocationResponse" message="tns:IService_DeleteLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertProperty" message="tns:IService_InsertProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertPropertyResponse" message="tns:IService_InsertProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProperty" message="tns:IService_GetProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyResponse" message="tns:IService_GetProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertiesByAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertiesByAddress" message="tns:IService_GetPropertiesByAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertiesByAddressResponse" message="tns:IService_GetPropertiesByAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProperties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllProperties" message="tns:IService_GetAllProperties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllPropertiesResponse" message="tns:IService_GetAllProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateProperty" message="tns:IService_UpdateProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdatePropertyResponse" message="tns:IService_UpdateProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteProperty" message="tns:IService_DeleteProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeletePropertyResponse" message="tns:IService_DeleteProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBySellerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPropertyBySellerID" message="tns:IService_GetPropertyBySellerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPropertyBySellerIDResponse" message="tns:IService_GetPropertyBySellerID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSeller">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertSeller" message="tns:IService_InsertSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertSellerResponse" message="tns:IService_InsertSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetSellerById" message="tns:IService_GetSellerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetSellerByIdResponse" message="tns:IService_GetSellerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerByPhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetSellerByPhone" message="tns:IService_GetSellerByPhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetSellerByPhoneResponse" message="tns:IService_GetSellerByPhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerByMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetSellerByMobile" message="tns:IService_GetSellerByMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetSellerByMobileResponse" message="tns:IService_GetSellerByMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSellers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllSellers" message="tns:IService_GetAllSellers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllSellersResponse" message="tns:IService_GetAllSellers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSeller">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateSeller" message="tns:IService_UpdateSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateSellerResponse" message="tns:IService_UpdateSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSeller">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteSeller" message="tns:IService_DeleteSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteSellerResponse" message="tns:IService_DeleteSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPropertyToSeller">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddPropertyToSeller" message="tns:IService_AddPropertyToSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddPropertyToSellerResponse" message="tns:IService_AddPropertyToSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPropertiesFromSeller">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPropertiesFromSeller" message="tns:IService_GetAllPropertiesFromSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllPropertiesFromSellerResponse" message="tns:IService_GetAllPropertiesFromSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertUser" message="tns:IService_InsertUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertUserResponse" message="tns:IService_InsertUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserUserByPhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserUserByPhone" message="tns:IService_GetUserUserByPhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserUserByPhoneResponse" message="tns:IService_GetUserUserByPhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllUsers" message="tns:IService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllUsersResponse" message="tns:IService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUser" message="tns:IService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateUserResponse" message="tns:IService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteUser" message="tns:IService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteUserResponse" message="tns:IService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertAppointment">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointment">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAppointments">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppointment">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBuyer">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerByPhone">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBuyerByPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerByMobile">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBuyerByMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBuyers">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllBuyers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsByPhone">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllLocationsByPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsByMobile">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllLocationsByMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPropertiesByPhone">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllPropertiesByPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPropertiesByMobile">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllPropertiesByMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBuyer">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBuyer">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocation">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://tempuri.org/IService/GetLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationsByCity">
+      <soap:operation soapAction="http://tempuri.org/IService/GetLocationsByCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocation">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocation">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProperty">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProperty">
+      <soap:operation soapAction="http://tempuri.org/IService/GetProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertiesByAddress">
+      <soap:operation soapAction="http://tempuri.org/IService/GetPropertiesByAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProperties">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProperty">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBySellerID">
+      <soap:operation soapAction="http://tempuri.org/IService/GetPropertyBySellerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSeller">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetSellerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerByPhone">
+      <soap:operation soapAction="http://tempuri.org/IService/GetSellerByPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerByMobile">
+      <soap:operation soapAction="http://tempuri.org/IService/GetSellerByMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSellers">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllSellers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSeller">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSeller">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPropertyToSeller">
+      <soap:operation soapAction="http://tempuri.org/IService/AddPropertyToSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPropertiesFromSeller">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllPropertiesFromSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserUserByPhone">
+      <soap:operation soapAction="http://tempuri.org/IService/GetUserUserByPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLib/Service/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

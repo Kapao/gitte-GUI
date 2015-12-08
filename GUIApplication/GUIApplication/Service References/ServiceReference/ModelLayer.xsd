@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ModelLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ModelLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Appointment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Buyer" nillable="true" type="tns:Buyer" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Seller" nillable="true" type="tns:Seller" />
+      <xs:element minOccurs="0" name="StarTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Appointment" nillable="true" type="tns:Appointment" />
+  <xs:complexType name="Buyer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowedEmailSpam" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ApprovedAmount" type="xs:double" />
+          <xs:element minOccurs="0" name="Bank" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BuyerApproved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ContactAllowedByBoligOne" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ContactAllowedByReal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DesiredRoomsMax" type="xs:double" />
+          <xs:element minOccurs="0" name="DesiredRoomsMin" type="xs:double" />
+          <xs:element minOccurs="0" name="EstateType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="InRKI" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LivesForRent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Locations" nillable="true" type="tns:ArrayOfLocation" />
+          <xs:element minOccurs="0" name="LotSizeMax" type="xs:double" />
+          <xs:element minOccurs="0" name="LotSizeMin" type="xs:double" />
+          <xs:element minOccurs="0" name="MaxPrice" type="xs:double" />
+          <xs:element minOccurs="0" name="MinPrice" type="xs:double" />
+          <xs:element minOccurs="0" name="OtherPref" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OwnesHouse" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProbertySizeMax" type="xs:double" />
+          <xs:element minOccurs="0" name="ProbertySizeMin" type="xs:double" />
+          <xs:element minOccurs="0" name="Properties" nillable="true" type="tns:ArrayOfProperty" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Buyer" nillable="true" type="tns:Buyer" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Misc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="ArrayOfLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocation" nillable="true" type="tns:ArrayOfLocation" />
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Buyers" nillable="true" type="tns:ArrayOfBuyer" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Location" nillable="true" type="tns:Location" />
+  <xs:complexType name="ArrayOfBuyer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Buyer" nillable="true" type="tns:Buyer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBuyer" nillable="true" type="tns:ArrayOfBuyer" />
+  <xs:complexType name="ArrayOfProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Property" nillable="true" type="tns:Property" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProperty" nillable="true" type="tns:ArrayOfProperty" />
+  <xs:complexType name="Property">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Buyers" nillable="true" type="tns:ArrayOfBuyer" />
+      <xs:element minOccurs="0" name="ConstructionYear" type="xs:int" />
+      <xs:element minOccurs="0" name="Floors" type="xs:int" />
+      <xs:element minOccurs="0" name="HouseSize" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="PropertySize" type="xs:double" />
+      <xs:element minOccurs="0" name="Rooms" type="xs:int" />
+      <xs:element minOccurs="0" name="SellerID" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Property" nillable="true" type="tns:Property" />
+  <xs:complexType name="Seller">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Properties" nillable="true" type="tns:ArrayOfProperty" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Seller" nillable="true" type="tns:Seller" />
+  <xs:complexType name="ArrayOfAppointment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Appointment" nillable="true" type="tns:Appointment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppointment" nillable="true" type="tns:ArrayOfAppointment" />
+  <xs:complexType name="ArrayOfSeller">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Seller" nillable="true" type="tns:Seller" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSeller" nillable="true" type="tns:ArrayOfSeller" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Appointments" nillable="true" type="tns:ArrayOfAppointment" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+</xs:schema>
