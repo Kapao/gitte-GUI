@@ -19,7 +19,7 @@
         <CheckBox Content="Villa i landzone" HorizontalAlignment="Left" Margin="266,112,0,0" VerticalAlignment="Top"/>
         <CheckBox Content="Landbrug" HorizontalAlignment="Left" Margin="266,132,0,0" VerticalAlignment="Top"/>
         <Label Content="Kontantpris" HorizontalAlignment="Left" Margin="8,172,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtPriceMin" HorizontalAlignment="Left" Height="23" Margin="103,175,0,0" GotFocus="txtPriceMin_GotFocus" TextWrapping="Wrap" Text="Pris fra" VerticalAlignment="Top" Width="85"/>
+        <TextBox Name="txtPriceMin" PreviewTextInput="txtPriceMin_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="103,175,0,0" GotFocus="txtPriceMin_GotFocus" TextWrapping="Wrap" Text="Pris fra" VerticalAlignment="Top" Width="85"/>
         <TextBox Name="txtPriceMax" HorizontalAlignment="Left" Height="23" Margin="210,175,0,0" GotFocus="txtPriceMax_GotFocus" TextWrapping="Wrap" Text="Pris til" VerticalAlignment="Top" Width="85"/>
         <TextBox Name="txtPropertyMin" HorizontalAlignment="Left" Height="23" Margin="103,203,0,0" GotFocus="txtPropertyMin_GotFocus" TextWrapping="Wrap" Text="Boligareal fra" VerticalAlignment="Top" Width="85"/>
         <TextBox Name="txtRoomsMin" HorizontalAlignment="Left" Height="23" Margin="103,231,0,0" GotFocus="txtRoomsMin_GotFocus" TextWrapping="Wrap" Text="Værelser fra" VerticalAlignment="Top" Width="85"/>

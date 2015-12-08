@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 using GUIApplication.ServiceReference;
 
 namespace GUIApplication
@@ -128,6 +129,19 @@ namespace GUIApplication
             {
                 txtLotMax.Text = "";
             }
+        }
+
+        private void txtPriceMin_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("^[\\0-9]+(?:[\\,][\\0-9]+)?$");
+            e.Handled = regex.IsMatch(e.Text);
+            //RegExNumbers(e);
+        }
+        private void RegExNumbers(TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("^[0-9]+(?:[\\,][0-9]+)?$");
+            e.Handled = regex.IsMatch(e.Text);
+
         }
     }
 }
