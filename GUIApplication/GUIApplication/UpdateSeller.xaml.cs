@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 
 
 namespace GUIApplication
@@ -67,7 +68,7 @@ namespace GUIApplication
             {
                 iServ.UpdateSeller(seller, properties, name, address, zipCode, phone, mobile, email, misc);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Fejl " + ex);
             }
@@ -82,14 +83,108 @@ namespace GUIApplication
             }
             else
             {
-                try
+                string zipCode = txtZipCode.Text;
+                Regex regex = new Regex(@"^\d+$");
+                if (!regex.IsMatch(zipCode))
                 {
-                    lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '1234'.");
                 }
-                catch (Exception)
-                {
-                    MessageBox.Show("Ugyldigt postnummer!");
-                }
+                else
+                    try
+                    {
+                        lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ugyldigt postnummer!");
+                    }
+            }
+        }
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '12345678'.");
+            }
+        }
+
+        private void txtName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtName.Text == "Navn")
+            {
+                txtName.Text = "";
+            }
+        }
+
+        private void txtAddress_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtAddress.Text == "Adresse")
+            {
+                txtAddress.Text = "";
+            }
+        }
+
+        private void txtZipCode_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtZipCode.Text == "Postnummer")
+            {
+                txtZipCode.Text = "";
+            }
+        }
+
+        private void txtPhone_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPhone.Text == "Telefon")
+            {
+                txtPhone.Text = "";
+            }
+        }
+
+        private void txtMobile_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtMobile.Text == "Mobil")
+            {
+                txtMobile.Text = "";
+            }
+        }
+
+        private void txtEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtEmail.Text == "Email")
+            {
+                txtEmail.Text = "";
+            }
+        }
+
+        private void txtMisc_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtMisc.Text == "Diverse")
+            {
+                txtMisc.Text = "";
+            }
+        }
+
+
+        private void txtPhone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPhone.Text == "")
+                txtPhone.Text = "Telefon";
+            else
+            {
+                string phone = txtPhone.Text;
+                RegExInt(phone);
+            }
+        }
+
+        private void txtMobile_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtMobile.Text == "")
+                txtMobile.Text = "Mobil";
+            else
+            {
+                string mobile = txtMobile.Text;
+                RegExInt(mobile);
             }
         }
 
