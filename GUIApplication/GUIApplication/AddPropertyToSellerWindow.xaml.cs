@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 namespace GUIApplication
 {
     /// <summary>
@@ -73,6 +74,24 @@ namespace GUIApplication
             txtConstructionYear.Text = property.ConstructionYear.ToString();
         }
 
+        private void RegExDouble(string e)
+        {
+            Regex regex = new Regex(@"^\d+([\,]?\d+)?$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '111,111'. \nMaks 1 komma!");
+            }
+        }
+
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '123'.");
+            }
+        }
+
         private void txtZipCode_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtZipCode.Text == "")
@@ -81,14 +100,24 @@ namespace GUIApplication
             }
             else
             {
-                try
+                string zipCode = txtZipCode.Text;
+                Regex regex = new Regex(@"^\d+$");
+                if (!regex.IsMatch(zipCode))
                 {
-                    lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '1234'.");
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ugyldigt postnummer!");
+                    try
+                    {
+                        lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ugyldigt postnummer!");
+                    }
                 }
+
             }
         }
 
@@ -152,8 +181,41 @@ namespace GUIApplication
                 txtType.Text = "";
         }
 
-       
+        private void txtRooms_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string rooms = txtRooms.Text;
+            RegExInt(rooms);
+        }
 
-        
+        private void txtFloors_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string floors = txtFloors.Text;
+            RegExInt(floors);
+        }
+
+        private void txtHouseSize_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string houseSize = txtHouseSize.Text;
+            RegExDouble(houseSize);
+        }
+
+        private void txtLotSize_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string lotSize = txtLotSize.Text;
+            RegExDouble(lotSize);
+        }
+
+        private void txtPrice_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string price = txtPrice.Text;
+            RegExDouble(price);
+        }
+
+        private void txtConstructionYear_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string constructionYear = txtConstructionYear.Text;
+            RegExInt(constructionYear);
+        }
+
     }
 }
