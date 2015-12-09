@@ -60,17 +60,6 @@ namespace GUIApplication
             }
         }
 
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Print!");
-        }
-
-        private void Refresh_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Refresh!");
-        }
-
         //Opret kunde; buyer eller seller
         private void BtnCreateCustomer(object sender, RoutedEventArgs e)
         {

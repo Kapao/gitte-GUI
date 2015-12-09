@@ -137,7 +137,7 @@ namespace GUIApplication
             iServ.UpdateBuyer(buyer, buyer.Properties, name, address, zipCode, phone, mobile, email, misc, buyer.EstateType, minPrice, maxPrice,
                 minLot, maxLot, minHouseSize, maxHouseSize, minRooms, maxRooms, buyer.Locations, buyer.OtherPref, buyer.ContactAllowedByBoligOne, buyer.ContactAllowedByReal
                 , buyer.AllowedEmailSpam, inRKI, buyerApproved, bank, owner, rents);
-
+            this.Close();
 
 
         }
