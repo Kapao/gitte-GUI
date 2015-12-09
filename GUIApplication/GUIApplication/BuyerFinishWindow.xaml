@@ -13,13 +13,12 @@
         <TextBox Name="txtApprovedAmount" HorizontalAlignment="Left" Height="23" Margin="198,194,0,0" TextWrapping="Wrap" Text="Beløb" VerticalAlignment="Top" Width="80"/>
         <Label Content="Har du solgt din nuværende bolig?" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top"/>
         <Label Content="Bor du til leje?" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top"/>
-        <Button Content="Annuller" HorizontalAlignment="Left" Margin="502,305,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel"/>
-        <Button Content="Gem og afslut" HorizontalAlignment="Left" Margin="414,305,0,0" VerticalAlignment="Top" Width="83" Click="BtnSaveAndClose"/>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="334,305,0,0" VerticalAlignment="Top" Width="75" Click="BtnBack"/>
+        <Button Content="Gem og afslut" HorizontalAlignment="Left" Margin="414,305,0,0" VerticalAlignment="Top" Width="83" Click="BtnSaveAndClose"/>
+        <Button Content="Annuller" HorizontalAlignment="Left" Margin="502,305,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel"/>
         <CheckBox Name="checkInRKI"  HorizontalAlignment="Left" Margin="224,134,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="checkBuyerApproved" HorizontalAlignment="Left" Margin="224,165,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="checkOwner"  HorizontalAlignment="Left" Margin="224,228,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="checkRents"  HorizontalAlignment="Left" Margin="224,259,0,0" VerticalAlignment="Top"/>
-
     </Grid>
 </Window>

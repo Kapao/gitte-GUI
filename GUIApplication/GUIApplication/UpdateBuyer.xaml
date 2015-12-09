@@ -18,10 +18,10 @@
         <TextBox x:Name="txtPriceMin" HorizontalAlignment="Left" Height="23" Margin="361,40,0,0" GotFocus="txtPriceMin_GotFocus" TextWrapping="Wrap" Text="Pris fra" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="txtPriceMax" HorizontalAlignment="Left" Height="23" Margin="468,40,0,0" GotFocus="txtPriceMax_GotFocus" TextWrapping="Wrap" Text="Pris til" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="txtPropertyMin" HorizontalAlignment="Left" Height="23" Margin="361,68,0,0" GotFocus="txtPropertyMin_GotFocus" TextWrapping="Wrap" Text="Boligareal fra" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="txtRoomsMin" HorizontalAlignment="Left" Height="23" Margin="361,96,0,0" GotFocus="txtRoomsMin_GotFocus" TextWrapping="Wrap" Text="Værelser fra" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="txtLotMin" HorizontalAlignment="Left" Height="23" Margin="361,124,0,0" GotFocus="txtLotMin_GotFocus" TextWrapping="Wrap" Text="Grundareal fra" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="txtPropertyMax" HorizontalAlignment="Left" Height="23" Margin="468,68,0,0" GotFocus="txtPropertyMax_GotFocus" TextWrapping="Wrap" Text="Boligareal til" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtRoomsMin" HorizontalAlignment="Left" Height="23" Margin="361,96,0,0" GotFocus="txtRoomsMin_GotFocus" TextWrapping="Wrap" Text="Værelser fra" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="txtRoomsMax" HorizontalAlignment="Left" Height="23" Margin="468,96,0,0" GotFocus="txtRoomsMax_GotFocus" TextWrapping="Wrap" Text="Værelser til" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txtLotMin" HorizontalAlignment="Left" Height="23" Margin="361,124,0,0" GotFocus="txtLotMin_GotFocus" TextWrapping="Wrap" Text="Grundareal fra" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="txtLotMax" HorizontalAlignment="Left" Height="23" Margin="468,124,0,0" GotFocus="txtLotMax_GotFocus" TextWrapping="Wrap" Text="Grundareal til" VerticalAlignment="Top" Width="85"/>
         <Label Content="Boligareal" HorizontalAlignment="Left" Margin="266,64,0,0" VerticalAlignment="Top"/>
         <Label Content="Værelser" HorizontalAlignment="Left" Margin="268,92,0,0" VerticalAlignment="Top"/>
