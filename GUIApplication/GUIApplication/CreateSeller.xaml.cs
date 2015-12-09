@@ -216,6 +216,10 @@ namespace GUIApplication
         {
             if (txtEmail.Text == "")
                 txtEmail.Text = "Email";
+            else
+            {
+                RegExEmail(txtEmail.Text);
+            }
             
         }
 
@@ -238,6 +242,13 @@ namespace GUIApplication
                 MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '12345678'.");
             }
         }
-
+        private void RegExEmail(string e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet 'navn@domæne.dk'.");
+            }
+        }
     }
 }
