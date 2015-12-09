@@ -152,13 +152,22 @@ namespace GUIApplication
             }
             else
             {
-                try
+                string zipCode = txtZipCode.Text;
+                Regex regex = new Regex(@"^\d+$");
+                if (!regex.IsMatch(zipCode))
                 {
-                    lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '1234'.");
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ugyldigt postnummer!");
+                    try
+                    {
+                        lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ugyldigt postnummer!");
+                    }
                 }
             }
         }
