@@ -9,7 +9,7 @@
         <TextBox Name="txtZipCode" GotFocus="txtZipCode_GotFocus" LostFocus="txtZipCode_LostFocus" HorizontalAlignment="Left" Height="23" Margin="10,97,0,0" TextWrapping="Wrap" Text="Postnummer" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="txtPhone" GotFocus="txtPhone_GotFocus" LostFocus="txtPhone_LostFocus" HorizontalAlignment="Left" Height="23" Margin="10,125,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.292,0.348"/>
         <TextBox Name="txtMobile" GotFocus="txtMobile_GotFocus" LostFocus="txtMobile_LostFocus" HorizontalAlignment="Left" Height="23" Margin="115,125,0,0" TextWrapping="Wrap" Text="Mobil" VerticalAlignment="Top" Width="100"/>
-        <TextBox Name="txtEmail" GotFocus="txtEmail_GotFocus"  HorizontalAlignment="Left" Height="23" Margin="10,153,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="200" RenderTransformOrigin="-0.267,-0.13"/>
+        <TextBox Name="txtEmail" GotFocus="txtEmail_GotFocus" LostFocus="txtEmail_LostFocus"  HorizontalAlignment="Left" Height="23" Margin="10,153,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="200" RenderTransformOrigin="-0.267,-0.13"/>
         <TextBox Name="txtMisc" GotFocus="txtMisc_GotFocus"  HorizontalAlignment="Left" Height="23" Margin="10,181,0,0" TextWrapping="Wrap" Text="Diverse" VerticalAlignment="Top" Width="200"/>
         <Label Name="lblCity" Content="By" HorizontalAlignment="Left" Margin="135,93,0,0" VerticalAlignment="Top"/>
         <Button Content="Gem og Afslut" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Width="86" Click="BtnUpdate"/>

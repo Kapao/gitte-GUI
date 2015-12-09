@@ -74,6 +74,8 @@ namespace GUIApplication
 
         private void BtnCreateNext(object sender, RoutedEventArgs e)
         {
+            string regex;
+
             if (customerType.SelectedIndex == 0)
             {
                 seller = new Seller()
