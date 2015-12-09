@@ -21,14 +21,19 @@ namespace GUIApplication
     public partial class CreateAppointment : Window
     {
         static IService iServ = new ServiceClient();
-   
-        public CreateAppointment()
+        private MainWindow sourceWin;
+
+        public CreateAppointment(MainWindow source)
         {
             InitializeComponent();
+            this.sourceWin = source;
         }
 
         private void Button_CreateAppointment(object sender, RoutedEventArgs e)
         {
+            User user = (User)cbUser.SelectedItem;
+            Buyer buyer = iServ.GetBuyerByPhone(txtBuyer.Text);
+            Seller seller = iServ.GetSellerByPhone(txtBuyerSubject.Text);
             Appointment appointment = new Appointment()
             {
                 Category = cbCategory.Text,
@@ -37,10 +42,10 @@ namespace GUIApplication
                 StarTime = tpStartTime.Value.Value,
                 EndTime = tpEndTime.Value.Value,
                 Status = "I gang",
-                //Buyer 
-                //Seller
+                UserID = user.Id,
             };
-            iServ.InsertAppointment(appointment);
+            iServ.InsertAppointment(appointment, buyer, seller);
+            sourceWin.CurrentUser.Appointments.Add(appointment);
             this.Close();
         }
 
@@ -183,9 +188,5 @@ namespace GUIApplication
             searchWin.Owner = this;
             searchWin.Show();
         }
-        //private void Button_SearchBuyer(object sender, RoutedEventArgs e)
-        //{
-        //    // open a search window for buyer
-        //}
     }
 }

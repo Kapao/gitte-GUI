@@ -127,7 +127,7 @@ namespace GUIApplication
 
         private void BtnCreateAppointment(object sender, RoutedEventArgs e)
         {
-            CreateAppointment window = new CreateAppointment();
+            CreateAppointment window = new CreateAppointment(this);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Topmost = true;
             window.Show();
@@ -190,6 +190,30 @@ namespace GUIApplication
                 info += "\nKunde(sælger): " + ap.Seller.Name;
             }
             return info;
+        }
+
+        private void BtnShowAllAppointments(object sender, RoutedEventArgs e)
+        {
+            appointmentData_Loaded(sender, e);
+        }
+
+        private void Button_DeleteAppointment(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = (Appointment)appointmentData.SelectedItem;
+            currentUser.Appointments.Remove(appointment);
+            iServ.DeleteAppointment(appointment);
+            appointmentData_Loaded(sender, e);
+        }
+
+        public User CurrentUser 
+        { 
+            get {return currentUser;}
+            set { currentUser = value; }
+        }
+
+        private void Button_UpdateAppointment(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
