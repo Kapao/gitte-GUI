@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 
 namespace GUIApplication
 {
@@ -71,5 +72,26 @@ namespace GUIApplication
             this.Close();
         }
 
+        private void txtApprovedAmount_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(txtApprovedAmount.Text == "Beløb")
+            {
+                txtApprovedAmount.Text = "";
+            }
+        }
+
+        private void txtApprovedAmount_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string amount = txtApprovedAmount.Text;
+            RegExDouble(amount);
+        }
+        private void RegExDouble(string e)
+        {
+            Regex regex = new Regex(@"^\d+([\,]?\d+)?$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '111,111'. \nMaks 1 komma!");
+            }
+        }
     }
 }
