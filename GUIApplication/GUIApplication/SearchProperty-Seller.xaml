@@ -12,12 +12,12 @@
         <Label Content="Sælgers telefon:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Width="98"/>
         <Label Content="Sælgers mobil:" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" Width="98"/>
         <TextBox Name="txtPropertyAddress" HorizontalAlignment="Left" Height="23" Margin="113,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtZipcode" HorizontalAlignment="Left" Height="23" Margin="113,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtZipcode" HorizontalAlignment="Left" Height="23" Margin="113,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="txtZipcode_LostFocus"/>
         <TextBox Name="txtMtkNr" HorizontalAlignment="Left" Height="23" Margin="113,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="txtSellerName" HorizontalAlignment="Left" Height="23" Margin="113,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="txtSellerAddress" HorizontalAlignment="Left" Height="23" Margin="113,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtSellerPhone" HorizontalAlignment="Left" Height="23" Margin="113,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtSellerMobile" HorizontalAlignment="Left" Height="23" Margin="113,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtSellerPhone" HorizontalAlignment="Left" Height="23" Margin="113,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="txtSellerPhone_LostFocus"/>
+        <TextBox Name="txtSellerMobile" HorizontalAlignment="Left" Height="23" Margin="113,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="txtSellerMobile_LostFocus"/>
         <Button Content="Søg" HorizontalAlignment="Left" Margin="355,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_Search"/>
         <Button Content="Vælg" HorizontalAlignment="Left" Margin="355,94,0,0" VerticalAlignment="Top" Width="75" Click="Button_Choose"/>
         <Button Content="Annuller" HorizontalAlignment="Left" Margin="355,120,0,0" VerticalAlignment="Top" Width="75" Click="Button_Annuller"/>

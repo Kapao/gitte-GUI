@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 
 namespace GUIApplication
 {
@@ -71,6 +72,57 @@ namespace GUIApplication
         {
             sourceWin.txtBuyer.Text = txtPhone.Text;
             this.Close();
+        }
+
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '12345678'.");
+            }
+        }
+
+        private void RegExEmail(string e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet 'navn@domæne.dk'.");
+            }
+        }
+
+        private void RegExZipCode(string e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '1234'.");
+            }
+        }
+
+        private void txtZipCode_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string zipCode = txtZipCode.Text;
+            RegExZipCode(zipCode);
+        }
+
+        private void txtPhone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string phone = txtPhone.Text;
+            RegExInt(phone);
+        }
+
+        private void txtMobile_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string mobile = txtMobile.Text;
+            RegExInt(mobile);
+        }
+
+        private void txtEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string email = txtEmail.Text;
+            RegExEmail(email);
         }
     }
 }
