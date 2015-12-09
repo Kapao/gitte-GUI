@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 
 namespace GUIApplication
 {
@@ -172,6 +173,11 @@ namespace GUIApplication
         {
             if (txtPhone.Text == "")
                 txtPhone.Text = "Telefon";
+            else
+            {
+                string phone = txtPhone.Text;
+                RegExInt(phone);
+            }
         }
 
         private void txtMobil_GotFocus(object sender, RoutedEventArgs e)
@@ -184,6 +190,11 @@ namespace GUIApplication
         {
             if (txtMobil.Text == "")
                 txtMobil.Text = "Mobil";
+            else
+            {
+                string mobile = txtMobil.Text;
+                RegExInt(mobile);
+            }
         }
 
         private void txtEmail_GotFocus(object sender, RoutedEventArgs e)
@@ -196,6 +207,7 @@ namespace GUIApplication
         {
             if (txtEmail.Text == "")
                 txtEmail.Text = "Email";
+            
         }
 
         private void txtMisc_GotFocus(object sender, RoutedEventArgs e)
@@ -209,7 +221,14 @@ namespace GUIApplication
             if (txtMisc.Text == "")
                 txtMisc.Text = "Diverse";
         }
-
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '12345678'.");
+            }
+        }
 
     }
 }
