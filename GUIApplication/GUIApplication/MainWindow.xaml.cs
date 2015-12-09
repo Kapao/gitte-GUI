@@ -103,13 +103,23 @@ namespace GUIApplication
         {
             if (buyerTab.IsSelected)
             {
-                Buyer buyer = (Buyer)buyerData.SelectedItem;
-                iServ.DeleteBuyer(buyer);
+                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet køber", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    Buyer buyer = (Buyer)buyerData.SelectedItem;
+                    iServ.DeleteBuyer(buyer);
+                    buyerData.ItemsSource = iServ.GetAllBuyers();
+                }
             }
             else
             {
-                Seller seller = (Seller)sellerData.SelectedItem;
-                iServ.DeleteSeller(seller);
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet sælger", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    Seller seller = (Seller)sellerData.SelectedItem;
+                    iServ.DeleteSeller(seller);
+                    sellerData.ItemsSource = iServ.GetAllSellers();
+                }
             }
         }
         private void UpdateBuyerDatagrid(object sender)
