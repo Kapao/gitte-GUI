@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 
 namespace GUIApplication
 {
@@ -202,6 +203,105 @@ namespace GUIApplication
             {
                 txtLotMax.Text = "";
             }
+        }
+        private void RegExDouble(string e)
+        {
+            Regex regex = new Regex(@"^\d+([\,]?\d+)?$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '111,111'. \nMaks 1 komma!");
+            }
+        }
+        
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '12345678'.");
+            }
+        }
+
+        private void RegExEmail(string e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet 'navn@domæne.dk'.");
+            }
+        }
+
+        private void txtPhone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string phone = txtPhone.Text;
+            RegExInt(phone);
+        }
+
+        private void txtMobile_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string mobile = txtMobile.Text;
+            RegExInt(mobile);
+        }
+
+        private void txtEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string email = txtEmail.Text;
+            RegExEmail(email);
+        }
+
+        private void txtPriceMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string priceMin = txtPriceMin.Text;
+            RegExDouble(priceMin);
+        }
+
+        private void txtPriceMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string priceMax = txtPriceMax.Text;
+            RegExDouble(priceMax);
+        }
+
+        private void txtPropertyMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string propMin = txtPropertyMin.Text;
+            RegExDouble(propMin);
+        }
+
+        private void txtPropertyMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string propMax = txtPropertyMax.Text;
+            RegExDouble(propMax);
+        }
+
+        private void txtRoomsMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string roomsMin = txtRoomsMin.Text;
+            RegExInt(roomsMin);
+
+        }
+
+        private void txtRoomsMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string roomsMax = txtRoomsMax.Text;
+            RegExInt(roomsMax);
+        }
+
+        private void txtLotMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string lotMin = txtLotMin.Text;
+            RegExDouble(lotMin);
+        }
+
+        private void txtLotMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string lotMax = txtLotMax.Text;
+            RegExDouble(lotMax);
+        }
+
+        private void txtApprovedAmount_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string approvedPrice = txtApprovedAmount.Text;
+            RegExDouble(approvedPrice);
         }
     }
 }
