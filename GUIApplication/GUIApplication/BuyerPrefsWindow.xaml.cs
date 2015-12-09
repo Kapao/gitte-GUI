@@ -131,17 +131,70 @@ namespace GUIApplication
             }
         }
 
-        private void txtPriceMin_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void RegExDouble(string e)
         {
-            Regex regex = new Regex("^[\\0-9]+(?:[\\,][\\0-9]+)?$");
-            e.Handled = regex.IsMatch(e.Text);
-            //RegExNumbers(e);
+            Regex regex = new Regex(@"^\d+([\,]?\d+)?$");
+            if(!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '111,111'. \nMaks 1 komma!");
+            }
         }
-        private void RegExNumbers(TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("^[0-9]+(?:[\\,][0-9]+)?$");
-            e.Handled = regex.IsMatch(e.Text);
 
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '123'.");
+            }
+        }
+
+        private void txtPriceMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string minPrice = txtPriceMin.Text;
+            RegExDouble(minPrice);
+        }
+
+        private void txtPriceMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string maxPrice = txtPriceMax.Text;
+            RegExDouble(maxPrice);
+        }
+
+        private void txtPropertyMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string minProp = txtPropertyMin.Text;
+            RegExDouble(minProp);
+        }
+
+        private void txtPropertyMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string maxProp = txtPropertyMax.Text;
+            RegExDouble(maxProp);
+        }
+        
+        private void txtRoomsMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string minRooms = txtRoomsMin.Text;
+            RegExInt(minRooms);
+        }
+
+        private void txtRoomsMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string maxRooms = txtRoomsMax.Text;
+            RegExInt(maxRooms);
+        }
+
+        private void txtLotMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string lotMin = txtLotMin.Text;
+            RegExDouble(lotMin);
+        }
+
+        private void txtLotMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string lotMax = txtLotMax.Text;
+            RegExDouble(lotMax);
         }
     }
 }
