@@ -88,6 +88,7 @@ namespace GUIApplication
             this.Close();
         }
 
+        //The following method uses a regular expression that checks if a string is of the datatype int(if it includes digets)
         private void RegExInt(string e)
         {
             Regex regex = new Regex(@"^\d+$");
@@ -97,6 +98,7 @@ namespace GUIApplication
             }
         }
 
+        //The following method uses a regular expression that checks if a string looks like a valid email. "name@domain.subdomain"
         private void RegExEmail(string e)
         {
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
@@ -106,27 +108,31 @@ namespace GUIApplication
             }
         }
 
+        //The following method uses a regular expression that checks if a string is of the datatype int, gives a messagebox for zipcode if not.
         private void RegExZipCode(string e)
         {
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Regex regex = new Regex(@"^\d+$");
             if (!regex.IsMatch(e))
             {
                 MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '1234'.");
             }
         }
 
+        //LostFocus Method that calls the regularexpression-method for the specific textbox
         private void txtZipCode_LostFocus(object sender, RoutedEventArgs e)
         {
             string zipCode = txtZipcode.Text;
             RegExZipCode(zipCode);
         }
 
+        //LostFocus Method that calls the regularexpression-method for the specific textbox
         private void txtPhone_LostFocus(object sender, RoutedEventArgs e)
         {
             string phone = txtSellerPhone.Text;
             RegExInt(phone);
         }
 
+        //LostFocus Method that calls the regularexpression-method for the specific textbox
         private void txtMobile_LostFocus(object sender, RoutedEventArgs e)
         {
             string mobile = txtSellerMobile.Text;
