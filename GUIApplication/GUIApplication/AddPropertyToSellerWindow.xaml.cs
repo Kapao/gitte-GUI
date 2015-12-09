@@ -91,5 +91,69 @@ namespace GUIApplication
                 }
             }
         }
+
+        private void txtZipCode_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtZipCode.Text == "Postnummer")
+                txtZipCode.Text = "";
+        }
+
+        private void txtSearchProperty_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtSearchProperty.Text == "Adresse")
+                txtSearchProperty.Text = "";
+        }
+
+        private void txtAddress_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtAddress.Text == "Adresse")
+                txtAddress.Text = "";
+        }
+
+        private void txtRooms_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRooms.Text == "Værelser")
+                txtRooms.Text = "";
+        }
+
+        private void txtFloors_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtFloors.Text == "Etager")
+                txtFloors.Text = "";
+        }
+
+        private void txtHouseSize_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtHouseSize.Text == "Boligareal")
+                txtHouseSize.Text = "";
+        }
+
+        private void txtLotSize_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtLotSize.Text == "Grundareal")
+                txtLotSize.Text = "";
+        }
+
+        private void txtPrice_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPrice.Text == "Pris")
+                txtPrice.Text = "";
+        }
+
+        private void txtConstructionYear_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtConstructionYear.Text == "Byggeår")
+                txtConstructionYear.Text = "";
+        }
+
+        private void txtType_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtType.Text == "Boligtype")
+                txtType.Text = "";
+        }
+
+       
+
+        
     }
 }
