@@ -104,24 +104,25 @@ namespace GUIApplication
         {
             if (buyerTab.IsSelected)
             {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet køber", System.Windows.MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
+                Buyer buyer = (Buyer)buyerData.SelectedItem;
+                if (buyer != null)
                 {
-                    Buyer buyer = (Buyer)buyerData.SelectedItem;
-                    if (buyer != null)
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet køber", System.Windows.MessageBoxButton.YesNo);
+                    if (messageBoxResult == MessageBoxResult.Yes)
                     {
                         iServ.DeleteBuyer(buyer);
                         buyerData.ItemsSource = iServ.GetAllBuyers();
                     }
                 }
+
             }
             else
             {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet sælger", System.Windows.MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
+                Seller seller = (Seller)sellerData.SelectedItem;
+                if (seller != null)
                 {
-                    Seller seller = (Seller)sellerData.SelectedItem;
-                    if (seller != null)
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet sælger", System.Windows.MessageBoxButton.YesNo);
+                    if (messageBoxResult == MessageBoxResult.Yes)
                     {
                         iServ.DeleteSeller(seller);
                         sellerData.ItemsSource = iServ.GetAllSellers();
@@ -222,15 +223,19 @@ namespace GUIApplication
             Appointment appointment = (Appointment)appointmentData.SelectedItem;
             if (appointment != null)
             {
-                currentUser.Appointments.Remove(appointment);
-                iServ.DeleteAppointment(appointment);
-                appointmentData_Loaded(sender, e);
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet aftale", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    currentUser.Appointments.Remove(appointment);
+                    iServ.DeleteAppointment(appointment);
+                    appointmentData.ItemsSource = iServ.GetAllAppointments();
+                }
             }
         }
 
-        public User CurrentUser 
-        { 
-            get {return currentUser;}
+        public User CurrentUser
+        {
+            get { return currentUser; }
             set { currentUser = value; }
         }
 
