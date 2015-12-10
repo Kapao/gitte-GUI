@@ -119,21 +119,21 @@ namespace GUIApplication
         }
 
         //LostFocus Method that calls the regularexpression-method for the specific textbox
-        private void txtZipCode_LostFocus(object sender, RoutedEventArgs e)
+        private void txtZipcode_LostFocus(object sender, RoutedEventArgs e)
         {
             string zipCode = txtZipcode.Text;
             RegExZipCode(zipCode);
         }
 
         //LostFocus Method that calls the regularexpression-method for the specific textbox
-        private void txtPhone_LostFocus(object sender, RoutedEventArgs e)
+        private void txtSellerPhone_LostFocus(object sender, RoutedEventArgs e)
         {
             string phone = txtSellerPhone.Text;
             RegExInt(phone);
         }
 
         //LostFocus Method that calls the regularexpression-method for the specific textbox
-        private void txtMobile_LostFocus(object sender, RoutedEventArgs e)
+        private void txtSellerMobile_LostFocus(object sender, RoutedEventArgs e)
         {
             string mobile = txtSellerMobile.Text;
             RegExInt(mobile);
