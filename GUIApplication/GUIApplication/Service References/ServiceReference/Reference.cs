@@ -1391,6 +1391,12 @@ namespace GUIApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserUserByPhone", ReplyAction="http://tempuri.org/IService/GetUserUserByPhoneResponse")]
         System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserUserByPhoneAsync(string phone);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserById", ReplyAction="http://tempuri.org/IService/GetUserByIdResponse")]
+        GUIApplication.ServiceReference.User GetUserById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserById", ReplyAction="http://tempuri.org/IService/GetUserByIdResponse")]
+        System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllUsers", ReplyAction="http://tempuri.org/IService/GetAllUsersResponse")]
         System.Collections.Generic.List<GUIApplication.ServiceReference.User> GetAllUsers();
         
@@ -1803,6 +1809,14 @@ namespace GUIApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserUserByPhoneAsync(string phone) {
             return base.Channel.GetUserUserByPhoneAsync(phone);
+        }
+        
+        public GUIApplication.ServiceReference.User GetUserById(int id) {
+            return base.Channel.GetUserById(id);
+        }
+        
+        public System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserByIdAsync(int id) {
+            return base.Channel.GetUserByIdAsync(id);
         }
         
         public System.Collections.Generic.List<GUIApplication.ServiceReference.User> GetAllUsers() {

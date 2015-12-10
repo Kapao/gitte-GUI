@@ -36,6 +36,7 @@ namespace GUIApplication
             Seller seller = iServ.GetSellerByPhone(txtBuyerSubject.Text);
             Appointment appointment = new Appointment()
             {
+                Id = Convert.ToInt32(txtSagsnr.Text),
                 Category = cbCategory.Text,
                 Date = Convert.ToDateTime(dpStartDate.Text),
                 Description = txtBoxDescription.Text,
@@ -156,7 +157,7 @@ namespace GUIApplication
             cbType.Items.Add("Normal");
         }
 
-        private void Button_Annuller(object sender, RoutedEventArgs e)
+        private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

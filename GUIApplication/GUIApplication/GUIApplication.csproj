@@ -112,6 +112,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="UpdateAppointment.xaml.cs">
+      <DependentUpon>UpdateAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateBuyer.xaml.cs">
       <DependentUpon>UpdateBuyer.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchProperty-Seller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

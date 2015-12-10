@@ -213,7 +213,10 @@ namespace GUIApplication
 
         private void Button_UpdateAppointment(object sender, RoutedEventArgs e)
         {
-
+            Appointment appointment = (Appointment)appointmentData.SelectedItem;
+            UpdateAppointment window = new UpdateAppointment(appointment, this);
+            window.Owner = this;
+            window.Show();
         }
     }
 }
