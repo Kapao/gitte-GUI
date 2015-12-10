@@ -187,7 +187,10 @@ namespace GUIApplication
         private void Button_VisInfo(object sender, RoutedEventArgs e)
         {
             Appointment ap = (Appointment)appointmentData.SelectedItem;
-            MessageBox.Show(appointmentInfo());
+            if (ap != null)
+            {
+                MessageBox.Show(appointmentInfo());
+            }
         }
 
         private string appointmentInfo()

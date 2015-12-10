@@ -21,7 +21,7 @@ namespace GUIApplication
     public partial class CreateAppointment : Window
     {
         static IService iServ = new ServiceClient();
-   
+
         public CreateAppointment()
         {
             InitializeComponent();
@@ -92,7 +92,11 @@ namespace GUIApplication
         private void txtSagsnr_Loaded(object sender, RoutedEventArgs e)
         {
             List<Appointment> apps = iServ.GetAllAppointments().ToList();
-            int sagsnr = apps.LastOrDefault().Id + 1;
+            int sagsnr = 1;
+            if (apps.Count > 0)
+            {
+                sagsnr = apps.LastOrDefault().Id + 1;
+            }
             txtSagsnr.Text = sagsnr.ToString();
         }
 
