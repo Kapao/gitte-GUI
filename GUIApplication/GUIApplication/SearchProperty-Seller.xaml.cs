@@ -37,40 +37,58 @@ namespace GUIApplication
             Seller seller;
             if (txtPropertyAddress.Text != "")
             {
-                property = iServ.GetProperty(txtPropertyAddress.Text);
-                seller = iServ.GetSellerById(property.SellerID);
-                txtZipcode.Text = property.ZipCode;
-                txtMtkNr.Text = "Matrikelnummer her";
-                txtSellerName.Text = seller.Name;
-                txtSellerAddress.Text = seller.Address;
-                txtSellerPhone.Text = seller.Phone;
-                txtSellerMobile.Text = seller.Mobile;
+                try
+                {
+                    property = iServ.GetProperty(txtPropertyAddress.Text);
+                    seller = iServ.GetSellerById(property.SellerID);
+                    txtZipcode.Text = property.ZipCode;
+                    txtMtkNr.Text = "Matrikelnummer her";
+                    txtSellerName.Text = seller.Name;
+                    txtSellerAddress.Text = seller.Address;
+                    txtSellerPhone.Text = seller.Phone;
+                    txtSellerMobile.Text = seller.Mobile;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sælger/ejendom ikke fundet.");
+                }
             }
-
             else if (txtSellerPhone.Text != "")
             {
-                seller = iServ.GetSellerByPhone(txtSellerPhone.Text);
-                property = iServ.GetPropertyBySellerID(seller.Id);
-                txtPropertyAddress.Text = property.Address;
-                txtZipcode.Text = property.ZipCode;
-                txtMtkNr.Text = "Matrikelnummer her";
-                txtSellerName.Text = seller.Name;
-                txtSellerAddress.Text = seller.Address;
-                txtSellerMobile.Text = seller.Mobile;
+                try
+                {
+                    seller = iServ.GetSellerByPhone(txtSellerPhone.Text);
+                    property = iServ.GetPropertyBySellerID(seller.Id);
+                    txtPropertyAddress.Text = property.Address;
+                    txtZipcode.Text = property.ZipCode;
+                    txtMtkNr.Text = "Matrikelnummer her";
+                    txtSellerName.Text = seller.Name;
+                    txtSellerAddress.Text = seller.Address;
+                    txtSellerMobile.Text = seller.Mobile;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sælger/ejendom ikke fundet.");
+                }
             }
-
             else if (txtSellerMobile.Text != "")
             {
-                seller = iServ.GetSellerByMobile(txtSellerMobile.Text);
-                property = iServ.GetPropertyBySellerID(seller.Id);
-                txtPropertyAddress.Text = property.Address;
-                txtZipcode.Text = property.ZipCode;
-                txtMtkNr.Text = "Matrikelnummer her";
-                txtSellerName.Text = seller.Name;
-                txtSellerAddress.Text = seller.Address;
-                txtSellerPhone.Text = seller.Phone;
+                try
+                {
+                    seller = iServ.GetSellerByMobile(txtSellerMobile.Text);
+                    property = iServ.GetPropertyBySellerID(seller.Id);
+                    txtPropertyAddress.Text = property.Address;
+                    txtZipcode.Text = property.ZipCode;
+                    txtMtkNr.Text = "Matrikelnummer her";
+                    txtSellerName.Text = seller.Name;
+                    txtSellerAddress.Text = seller.Address;
+                    txtSellerPhone.Text = seller.Phone;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sælger/ejendom ikke fundet.");
+                }
             }
-
             else
             {
                 MessageBox.Show("Indtast beliggenhed eller sælgernummer");

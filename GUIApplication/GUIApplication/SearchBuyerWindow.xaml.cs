@@ -38,17 +38,26 @@ namespace GUIApplication
         {
             if (txtPhone.Text != "")
             {
-                buyer = iServ.GetBuyerByPhone(txtPhone.Text);
-                location = iServ.GetLocation(buyer.ZipCode);
-                txtName.Text = buyer.Name;
-                txtAddress.Text = buyer.Address;
-                txtZipCode.Text = buyer.ZipCode;
-                txtCity.Text = location.City;
-                txtMobile.Text = buyer.Mobile;
-                txtEmail.Text = buyer.Email;
+                try
+                {
+                    buyer = iServ.GetBuyerByPhone(txtPhone.Text);
+                    location = iServ.GetLocation(buyer.ZipCode);
+                    txtName.Text = buyer.Name;
+                    txtAddress.Text = buyer.Address;
+                    txtZipCode.Text = buyer.ZipCode;
+                    txtCity.Text = location.City;
+                    txtMobile.Text = buyer.Mobile;
+                    txtEmail.Text = buyer.Email;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Køber ikke fundet.1");
+                }
             }
             else if (txtMobile.Text != "")
             {
+                try
+                { 
                 buyer = iServ.GetBuyerByMobile(txtMobile.Text);
                 location = iServ.GetLocation(buyer.ZipCode);
                 txtName.Text = buyer.Name;
@@ -57,6 +66,11 @@ namespace GUIApplication
                 txtCity.Text = location.City;
                 txtPhone.Text = buyer.Phone;
                 txtEmail.Text = buyer.Email;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Køber ikke fundet.2");
+                }
             }
             else 
             {
