@@ -19,14 +19,14 @@
         <CheckBox Content="Villa i landzone" HorizontalAlignment="Left" Margin="266,112,0,0" VerticalAlignment="Top"/>
         <CheckBox Content="Landbrug" HorizontalAlignment="Left" Margin="266,132,0,0" VerticalAlignment="Top"/>
         <Label Content="Kontantpris" HorizontalAlignment="Left" Margin="8,172,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtPriceMin" HorizontalAlignment="Left" Height="23" Margin="103,175,0,0" GotFocus="txtPriceMin_GotFocus" TextWrapping="Wrap" Text="Pris fra" VerticalAlignment="Top" Width="85"/>
-        <TextBox Name="txtPriceMax" HorizontalAlignment="Left" Height="23" Margin="210,175,0,0" GotFocus="txtPriceMax_GotFocus" TextWrapping="Wrap" Text="Pris til" VerticalAlignment="Top" Width="85"/>
-        <TextBox Name="txtPropertyMin" HorizontalAlignment="Left" Height="23" Margin="103,203,0,0" GotFocus="txtPropertyMin_GotFocus" TextWrapping="Wrap" Text="Boligareal fra" VerticalAlignment="Top" Width="85"/>
-        <TextBox Name="txtRoomsMin" HorizontalAlignment="Left" Height="23" Margin="103,231,0,0" GotFocus="txtRoomsMin_GotFocus" TextWrapping="Wrap" Text="Værelser fra" VerticalAlignment="Top" Width="85"/>
-        <TextBox Name="txtLotMin" HorizontalAlignment="Left" Height="23" Margin="103,259,0,0" GotFocus="txtLotMin_GotFocus" TextWrapping="Wrap" Text="Grundareal fra" VerticalAlignment="Top" Width="85"/>
-        <TextBox Name="txtPropertyMax" HorizontalAlignment="Left" Height="23" Margin="210,203,0,0" GotFocus="txtPropertyMax_GotFocus" TextWrapping="Wrap" Text="Boligareal til" VerticalAlignment="Top" Width="85"/>
-        <TextBox Name="txtRoomsMax" HorizontalAlignment="Left" Height="23" Margin="210,231,0,0" GotFocus="txtRoomsMax_GotFocus" TextWrapping="Wrap" Text="Værelser til" VerticalAlignment="Top" Width="85"/>
-        <TextBox Name="txtLotMax" HorizontalAlignment="Left" Height="23" Margin="210,259,0,0" GotFocus="txtLotMax_GotFocus" TextWrapping="Wrap" Text="Grundareal til" VerticalAlignment="Top" Width="85"/>
+        <TextBox Name="txtPriceMin" HorizontalAlignment="Left" Height="23" Margin="103,175,0,0" GotFocus="txtPriceMin_GotFocus" TextWrapping="Wrap" Text="Pris fra" VerticalAlignment="Top" Width="85" LostFocus="txtPriceMin_LostFocus"/>
+        <TextBox Name="txtPriceMax" HorizontalAlignment="Left" Height="23" Margin="210,175,0,0" GotFocus="txtPriceMax_GotFocus" TextWrapping="Wrap" Text="Pris til" VerticalAlignment="Top" Width="85" LostFocus="txtPriceMax_LostFocus"/>
+        <TextBox Name="txtPropertyMin" HorizontalAlignment="Left" Height="23" Margin="103,203,0,0" GotFocus="txtPropertyMin_GotFocus" TextWrapping="Wrap" Text="Boligareal fra" VerticalAlignment="Top" Width="85" LostFocus="txtPropertyMin_LostFocus"/>
+        <TextBox Name="txtPropertyMax" HorizontalAlignment="Left" Height="23" Margin="210,203,0,0" GotFocus="txtPropertyMax_GotFocus" TextWrapping="Wrap" Text="Boligareal til" VerticalAlignment="Top" Width="85" LostFocus="txtPropertyMax_LostFocus"/>
+        <TextBox Name="txtRoomsMin" HorizontalAlignment="Left" Height="23" Margin="103,231,0,0" GotFocus="txtRoomsMin_GotFocus" TextWrapping="Wrap" Text="Værelser fra" VerticalAlignment="Top" Width="85" LostFocus="txtRoomsMin_LostFocus"/>
+        <TextBox Name="txtRoomsMax" HorizontalAlignment="Left" Height="23" Margin="210,231,0,0" GotFocus="txtRoomsMax_GotFocus" TextWrapping="Wrap" Text="Værelser til" VerticalAlignment="Top" Width="85" LostFocus="txtRoomsMax_LostFocus"/>
+        <TextBox Name="txtLotMin" HorizontalAlignment="Left" Height="23" Margin="103,259,0,0" GotFocus="txtLotMin_GotFocus" TextWrapping="Wrap" Text="Grundareal fra" VerticalAlignment="Top" Width="85" LostFocus="txtLotMin_LostFocus"/>
+        <TextBox Name="txtLotMax" HorizontalAlignment="Left" Height="23" Margin="210,259,0,0" GotFocus="txtLotMax_GotFocus" TextWrapping="Wrap" Text="Grundareal til" VerticalAlignment="Top" Width="85" LostFocus="txtLotMax_LostFocus"/>
         <Label Content="Boligareal" HorizontalAlignment="Left" Margin="8,199,0,0" VerticalAlignment="Top"/>
         <Label Content="Værelser" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top"/>
         <Label Content="Grundareal" HorizontalAlignment="Left" Margin="8,255,0,0" VerticalAlignment="Top"/>
@@ -34,9 +34,8 @@
         <TextBox Name="txtLocation" HorizontalAlignment="Left" Height="23" Margin="210,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
         <Label Content="Særlige ønsker til boligen (vises på hjemmesiden)" HorizontalAlignment="Left" Margin="8,314,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txtMisc" HorizontalAlignment="Left" Height="97" Margin="10,345,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285"/>
-        <Button Content="Annuller" HorizontalAlignment="Left" Margin="381,451,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel"/>
-        <Button Content="Næste" HorizontalAlignment="Left" Margin="301,451,0,0" VerticalAlignment="Top" Width="75" Click="BtnNext"/>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="221,451,0,0" VerticalAlignment="Top" Width="75" Click="BtnBack"/>
-
-    </Grid>
+        <Button Content="Næste" HorizontalAlignment="Left" Margin="301,451,0,0" VerticalAlignment="Top" Width="75" Click="BtnNext"/>
+        <Button Content="Annuller" HorizontalAlignment="Left" Margin="381,451,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel"/>
+       </Grid>
 </Window>

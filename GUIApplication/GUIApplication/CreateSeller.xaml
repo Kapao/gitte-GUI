@@ -19,9 +19,9 @@
             <ComboBoxItem Content="Sælger" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Køber" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
+        <Button Content="Næste" HorizontalAlignment="Left" Margin="14,231,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnCreateNext"/>
         <Button Content="Annuller" HorizontalAlignment="Left" Margin="94,231,0,0" VerticalAlignment="Top" Width="75" Click="BtnAnnuller" Height="20"/>
         <Label Name="lblCity" Content="By" HorizontalAlignment="Left" Margin="94,88,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
-        <Button Content="Næste" HorizontalAlignment="Left" Margin="14,231,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnCreateNext"/>
 
     </Grid>
 </Window>

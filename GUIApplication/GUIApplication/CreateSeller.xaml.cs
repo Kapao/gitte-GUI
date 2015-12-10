@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 
 namespace GUIApplication
 {
@@ -151,13 +152,22 @@ namespace GUIApplication
             }
             else
             {
-                try
+                string zipCode = txtZipCode.Text;
+                Regex regex = new Regex(@"^\d+$");
+                if (!regex.IsMatch(zipCode))
                 {
-                    lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '1234'.");
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ugyldigt postnummer!");
+                    try
+                    {
+                        lblCity.Content = iServ.GetLocation(txtZipCode.Text).City;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ugyldigt postnummer!");
+                    }
                 }
             }
         }
@@ -172,6 +182,11 @@ namespace GUIApplication
         {
             if (txtPhone.Text == "")
                 txtPhone.Text = "Telefon";
+            else
+            {
+                string phone = txtPhone.Text;
+                RegExInt(phone);
+            }
         }
 
         private void txtMobil_GotFocus(object sender, RoutedEventArgs e)
@@ -184,6 +199,11 @@ namespace GUIApplication
         {
             if (txtMobil.Text == "")
                 txtMobil.Text = "Mobil";
+            else
+            {
+                string mobile = txtMobil.Text;
+                RegExInt(mobile);
+            }
         }
 
         private void txtEmail_GotFocus(object sender, RoutedEventArgs e)
@@ -196,6 +216,11 @@ namespace GUIApplication
         {
             if (txtEmail.Text == "")
                 txtEmail.Text = "Email";
+            else
+            {
+                RegExEmail(txtEmail.Text);
+            }
+            
         }
 
         private void txtMisc_GotFocus(object sender, RoutedEventArgs e)
@@ -209,7 +234,21 @@ namespace GUIApplication
             if (txtMisc.Text == "")
                 txtMisc.Text = "Diverse";
         }
-
-
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '12345678'.");
+            }
+        }
+        private void RegExEmail(string e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet 'navn@domæne.dk'.");
+            }
+        }
     }
 }

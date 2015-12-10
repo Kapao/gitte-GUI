@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GUIApplication.ServiceReference;
+using System.Text.RegularExpressions;
 
 namespace GUIApplication
 {
@@ -36,40 +37,58 @@ namespace GUIApplication
             Seller seller;
             if (txtPropertyAddress.Text != "")
             {
-                property = iServ.GetProperty(txtPropertyAddress.Text);
-                seller = iServ.GetSellerById(property.SellerID);
-                txtZipcode.Text = property.ZipCode;
-                txtMtkNr.Text = "Matrikelnummer her";
-                txtSellerName.Text = seller.Name;
-                txtSellerAddress.Text = seller.Address;
-                txtSellerPhone.Text = seller.Phone;
-                txtSellerMobile.Text = seller.Mobile;
+                try
+                {
+                    property = iServ.GetProperty(txtPropertyAddress.Text);
+                    seller = iServ.GetSellerById(property.SellerID);
+                    txtZipcode.Text = property.ZipCode;
+                    txtMtkNr.Text = "Matrikelnummer her";
+                    txtSellerName.Text = seller.Name;
+                    txtSellerAddress.Text = seller.Address;
+                    txtSellerPhone.Text = seller.Phone;
+                    txtSellerMobile.Text = seller.Mobile;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sælger/ejendom ikke fundet.");
+                }
             }
-
             else if (txtSellerPhone.Text != "")
             {
-                seller = iServ.GetSellerByPhone(txtSellerPhone.Text);
-                property = iServ.GetPropertyBySellerID(seller.Id);
-                txtPropertyAddress.Text = property.Address;
-                txtZipcode.Text = property.ZipCode;
-                txtMtkNr.Text = "Matrikelnummer her";
-                txtSellerName.Text = seller.Name;
-                txtSellerAddress.Text = seller.Address;
-                txtSellerMobile.Text = seller.Mobile;
+                try
+                {
+                    seller = iServ.GetSellerByPhone(txtSellerPhone.Text);
+                    property = iServ.GetPropertyBySellerID(seller.Id);
+                    txtPropertyAddress.Text = property.Address;
+                    txtZipcode.Text = property.ZipCode;
+                    txtMtkNr.Text = "Matrikelnummer her";
+                    txtSellerName.Text = seller.Name;
+                    txtSellerAddress.Text = seller.Address;
+                    txtSellerMobile.Text = seller.Mobile;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sælger/ejendom ikke fundet.");
+                }
             }
-
             else if (txtSellerMobile.Text != "")
             {
-                seller = iServ.GetSellerByMobile(txtSellerMobile.Text);
-                property = iServ.GetPropertyBySellerID(seller.Id);
-                txtPropertyAddress.Text = property.Address;
-                txtZipcode.Text = property.ZipCode;
-                txtMtkNr.Text = "Matrikelnummer her";
-                txtSellerName.Text = seller.Name;
-                txtSellerAddress.Text = seller.Address;
-                txtSellerPhone.Text = seller.Phone;
+                try
+                {
+                    seller = iServ.GetSellerByMobile(txtSellerMobile.Text);
+                    property = iServ.GetPropertyBySellerID(seller.Id);
+                    txtPropertyAddress.Text = property.Address;
+                    txtZipcode.Text = property.ZipCode;
+                    txtMtkNr.Text = "Matrikelnummer her";
+                    txtSellerName.Text = seller.Name;
+                    txtSellerAddress.Text = seller.Address;
+                    txtSellerPhone.Text = seller.Phone;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sælger/ejendom ikke fundet.");
+                }
             }
-
             else
             {
                 MessageBox.Show("Indtast beliggenhed eller sælgernummer");
@@ -85,6 +104,57 @@ namespace GUIApplication
         {
             sourceWin.txtBuyerSubject.Text = txtSellerPhone.Text;
             this.Close();
+        }
+
+        //The following method uses a regular expression that checks if a string is of the datatype int(if it includes digets)
+        private void RegExInt(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '12345678'.");
+            }
+        }
+
+        //The following method uses a regular expression that checks if a string looks like a valid email. "name@domain.subdomain"
+        private void RegExEmail(string e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet 'navn@domæne.dk'.");
+            }
+        }
+
+        //The following method uses a regular expression that checks if a string is of the datatype int, gives a messagebox for zipcode if not.
+        private void RegExZipCode(string e)
+        {
+            Regex regex = new Regex(@"^\d+$");
+            if (!regex.IsMatch(e))
+            {
+                MessageBox.Show("Textboxen indeholder ugyldig information.\nTextboxen tager imod formatet '1234'.");
+            }
+        }
+
+        //LostFocus Method that calls the regularexpression-method for the specific textbox
+        private void txtZipcode_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string zipCode = txtZipcode.Text;
+            RegExZipCode(zipCode);
+        }
+
+        //LostFocus Method that calls the regularexpression-method for the specific textbox
+        private void txtSellerPhone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string phone = txtSellerPhone.Text;
+            RegExInt(phone);
+        }
+
+        //LostFocus Method that calls the regularexpression-method for the specific textbox
+        private void txtSellerMobile_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string mobile = txtSellerMobile.Text;
+            RegExInt(mobile);
         }
     }
 }
