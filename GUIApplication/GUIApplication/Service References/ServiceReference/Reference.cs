@@ -1102,16 +1102,16 @@ namespace GUIApplication.ServiceReference {
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertAppointment", ReplyAction="http://tempuri.org/IService/InsertAppointmentResponse")]
-        void InsertAppointment(GUIApplication.ServiceReference.Appointment appointment);
+        void InsertAppointment(GUIApplication.ServiceReference.Appointment appointment, GUIApplication.ServiceReference.Buyer buyer, GUIApplication.ServiceReference.Seller seller);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertAppointment", ReplyAction="http://tempuri.org/IService/InsertAppointmentResponse")]
-        System.Threading.Tasks.Task InsertAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment);
+        System.Threading.Tasks.Task InsertAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment, GUIApplication.ServiceReference.Buyer buyer, GUIApplication.ServiceReference.Seller seller);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAppointment", ReplyAction="http://tempuri.org/IService/GetAppointmentResponse")]
-        GUIApplication.ServiceReference.Appointment GetAppointment(System.DateTime date);
+        System.Collections.Generic.List<GUIApplication.ServiceReference.Appointment> GetAppointment(System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAppointment", ReplyAction="http://tempuri.org/IService/GetAppointmentResponse")]
-        System.Threading.Tasks.Task<GUIApplication.ServiceReference.Appointment> GetAppointmentAsync(System.DateTime date);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<GUIApplication.ServiceReference.Appointment>> GetAppointmentAsync(System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllAppointments", ReplyAction="http://tempuri.org/IService/GetAllAppointmentsResponse")]
         System.Collections.Generic.List<GUIApplication.ServiceReference.Appointment> GetAllAppointments();
@@ -1437,19 +1437,19 @@ namespace GUIApplication.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public void InsertAppointment(GUIApplication.ServiceReference.Appointment appointment) {
-            base.Channel.InsertAppointment(appointment);
+        public void InsertAppointment(GUIApplication.ServiceReference.Appointment appointment, GUIApplication.ServiceReference.Buyer buyer, GUIApplication.ServiceReference.Seller seller) {
+            base.Channel.InsertAppointment(appointment, buyer, seller);
         }
         
-        public System.Threading.Tasks.Task InsertAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment) {
-            return base.Channel.InsertAppointmentAsync(appointment);
+        public System.Threading.Tasks.Task InsertAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment, GUIApplication.ServiceReference.Buyer buyer, GUIApplication.ServiceReference.Seller seller) {
+            return base.Channel.InsertAppointmentAsync(appointment, buyer, seller);
         }
         
-        public GUIApplication.ServiceReference.Appointment GetAppointment(System.DateTime date) {
+        public System.Collections.Generic.List<GUIApplication.ServiceReference.Appointment> GetAppointment(System.DateTime date) {
             return base.Channel.GetAppointment(date);
         }
         
-        public System.Threading.Tasks.Task<GUIApplication.ServiceReference.Appointment> GetAppointmentAsync(System.DateTime date) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<GUIApplication.ServiceReference.Appointment>> GetAppointmentAsync(System.DateTime date) {
             return base.Channel.GetAppointmentAsync(date);
         }
         
