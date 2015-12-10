@@ -43,26 +43,21 @@ namespace GUIApplication
             if (buyerTab.IsSelected)
             {
                 Buyer buyer = (Buyer)buyerData.SelectedItem;
-                Location loc = iServ.GetLocation(buyer.ZipCode);
-                MessageBox.Show("KøberID: " + buyer.Id + "\nNavn: " + buyer.Name + "\nAdresse: " + buyer.Address + "\nPostnummer: " + buyer.ZipCode + " By: " + loc.City + "\nTelefon: " + buyer.Phone + "\nMobil: " + buyer.Mobile + "\nEmail: " + buyer.Email + "\nMisc: " + buyer.Misc);
+                if (buyer != null)
+                {
+                    Location loc = iServ.GetLocation(buyer.ZipCode);
+                    MessageBox.Show("KøberID: " + buyer.Id + "\nNavn: " + buyer.Name + "\nAdresse: " + buyer.Address + "\nPostnummer: " + buyer.ZipCode + " By: " + loc.City + "\nTelefon: " + buyer.Phone + "\nMobil: " + buyer.Mobile + "\nEmail: " + buyer.Email + "\nMisc: " + buyer.Misc);
+                }
             }
             else
             {
                 Seller seller = (Seller)sellerData.SelectedItem;
-                Location loc = iServ.GetLocation(seller.ZipCode);
-                MessageBox.Show("SælgerID: " + seller.Id + "\nNavn: " + seller.Name + "\nAdresse: " + seller.Address + "\nPostnummer: " + seller.ZipCode + " By: " + loc.City + "\nTelefon: " + seller.Phone + "\nMobil: " + seller.Mobile + "\nEmail: " + seller.Email + "\nMisc: " + seller.Misc);
+                if (seller != null)
+                {
+                    Location loc = iServ.GetLocation(seller.ZipCode);
+                    MessageBox.Show("SælgerID: " + seller.Id + "\nNavn: " + seller.Name + "\nAdresse: " + seller.Address + "\nPostnummer: " + seller.ZipCode + " By: " + loc.City + "\nTelefon: " + seller.Phone + "\nMobil: " + seller.Mobile + "\nEmail: " + seller.Email + "\nMisc: " + seller.Misc);
+                }
             }
-        }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Print!");
-        }
-
-        private void Refresh_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Refresh!");
         }
 
         //Opret kunde; buyer eller seller
@@ -84,18 +79,24 @@ namespace GUIApplication
             if (buyerTab.IsSelected)
             {
                 Buyer buyer = (Buyer)buyerData.SelectedItem;
-                UpdateBuyer window = new UpdateBuyer(buyer);
-                window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                window.Topmost = true;
-                window.Show();
+                if (buyer != null)
+                {
+                    UpdateBuyer window = new UpdateBuyer(buyer);
+                    window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    window.Topmost = true;
+                    window.Show();
+                }
             }
             else
             {
                 Seller seller = (Seller)sellerData.SelectedItem;
-                UpdateSeller window = new UpdateSeller(seller);
-                window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                window.Topmost = false;
-                window.Show();
+                if (seller != null)
+                {
+                    UpdateSeller window = new UpdateSeller(seller);
+                    window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    window.Topmost = false;
+                    window.Show();
+                }
             }
         }
 
@@ -104,12 +105,29 @@ namespace GUIApplication
             if (buyerTab.IsSelected)
             {
                 Buyer buyer = (Buyer)buyerData.SelectedItem;
-                iServ.DeleteBuyer(buyer);
+                if (buyer != null)
+                {
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet køber", System.Windows.MessageBoxButton.YesNo);
+                    if (messageBoxResult == MessageBoxResult.Yes)
+                    {
+                        iServ.DeleteBuyer(buyer);
+                        buyerData.ItemsSource = iServ.GetAllBuyers();
+                    }
+                }
+
             }
             else
             {
                 Seller seller = (Seller)sellerData.SelectedItem;
-                iServ.DeleteSeller(seller);
+                if (seller != null)
+                {
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet sælger", System.Windows.MessageBoxButton.YesNo);
+                    if (messageBoxResult == MessageBoxResult.Yes)
+                    {
+                        iServ.DeleteSeller(seller);
+                        sellerData.ItemsSource = iServ.GetAllSellers();
+                    }
+                }
             }
         }
         private void UpdateBuyerDatagrid(object sender)
@@ -170,7 +188,10 @@ namespace GUIApplication
         private void Button_VisInfo(object sender, RoutedEventArgs e)
         {
             Appointment ap = (Appointment)appointmentData.SelectedItem;
-            MessageBox.Show(appointmentInfo());
+            if (ap != null)
+            {
+                MessageBox.Show(appointmentInfo());
+            }
         }
 
         private string appointmentInfo()
@@ -178,14 +199,14 @@ namespace GUIApplication
             Appointment ap = (Appointment)appointmentData.SelectedItem;
             string formatDate = "dd.MM-yy";
             string formatTime = "HH.mm";
-            string info = "ID: " + ap.Id + "\nDato: " + ap.Date.ToString(formatDate) + "\tVarighed: " 
+            string info = "ID: " + ap.Id + "\nDato: " + ap.Date.ToString(formatDate) + "\tVarighed: "
                    + ap.StarTime.ToString(formatTime) + " - " + ap.EndTime.ToString(formatTime) + "\nKategori: "
                    + ap.Category + "\nBeskrivelse: " + ap.Description + "\nStatus: " + ap.Status;
-            if(ap.Buyer != null)
+            if (ap.Buyer != null)
             {
                 info += "\nKunde(køber): " + ap.Buyer.Name;
             }
-            else if(ap.Seller != null)
+            else if (ap.Seller != null)
             {
                 info += "\nKunde(sælger): " + ap.Seller.Name;
             }
@@ -194,20 +215,27 @@ namespace GUIApplication
 
         private void BtnShowAllAppointments(object sender, RoutedEventArgs e)
         {
-            appointmentData_Loaded(sender, e);
+            appointmentData.ItemsSource = iServ.GetAllAppointments();
         }
 
         private void Button_DeleteAppointment(object sender, RoutedEventArgs e)
         {
             Appointment appointment = (Appointment)appointmentData.SelectedItem;
-            currentUser.Appointments.Remove(appointment);
-            iServ.DeleteAppointment(appointment);
-            appointmentData_Loaded(sender, e);
+            if (appointment != null)
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet aftale", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    currentUser.Appointments.Remove(appointment);
+                    iServ.DeleteAppointment(appointment);
+                    appointmentData.ItemsSource = iServ.GetAllAppointments();
+                }
+            }
         }
 
-        public User CurrentUser 
-        { 
-            get {return currentUser;}
+        public User CurrentUser
+        {
+            get { return currentUser; }
             set { currentUser = value; }
         }
 
