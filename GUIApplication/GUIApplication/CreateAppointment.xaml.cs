@@ -22,7 +22,7 @@ namespace GUIApplication
     {
         static IService iServ = new ServiceClient();
         private MainWindow sourceWin;
-   
+
         public CreateAppointment(MainWindow source)
         {
             InitializeComponent();
@@ -32,21 +32,35 @@ namespace GUIApplication
         private void Button_CreateAppointment(object sender, RoutedEventArgs e)
         {
             User user = (User)cbUser.SelectedItem;
-            Buyer buyer = iServ.GetBuyerByPhone(txtBuyer.Text);
-            Seller seller = iServ.GetSellerByPhone(txtBuyerSubject.Text);
-            Appointment appointment = new Appointment()
+            if (user == null)
             {
-                Category = cbCategory.Text,
-                Date = Convert.ToDateTime(dpStartDate.Text),
-                Description = txtBoxDescription.Text,
-                StarTime = tpStartTime.Value.Value,
-                EndTime = tpEndTime.Value.Value,
-                Status = "I gang",
-                UserID = user.Id,
-            };
-            iServ.InsertAppointment(appointment, buyer, seller);
-            sourceWin.CurrentUser.Appointments.Add(appointment);
-            this.Close();
+                MessageBox.Show("Vælg en bruger");
+            }
+            else
+            {
+                Buyer buyer = iServ.GetBuyerByPhone(txtBuyer.Text);
+                Seller seller = iServ.GetSellerByPhone(txtBuyerSubject.Text);
+                try
+                {
+                    Appointment appointment = new Appointment()
+                    {
+                        Category = cbCategory.Text,
+                        Date = Convert.ToDateTime(dpStartDate.Text),
+                        Description = txtBoxDescription.Text,
+                        StarTime = tpStartTime.Value.Value,
+                        EndTime = tpEndTime.Value.Value,
+                        Status = "I gang",
+                        UserID = user.Id,
+                    };
+                    iServ.InsertAppointment(appointment, buyer, seller);
+                    sourceWin.CurrentUser.Appointments.Add(appointment);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Dato og tidspunkt for aftalen skal være udfyldt korrekt." + ex);
+                }
+            }
         }
 
         private void ComboBox_User(object sender, SelectionChangedEventArgs e)

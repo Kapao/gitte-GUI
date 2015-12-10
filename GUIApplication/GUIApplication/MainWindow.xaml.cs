@@ -214,15 +214,18 @@ namespace GUIApplication
 
         private void BtnShowAllAppointments(object sender, RoutedEventArgs e)
         {
-            appointmentData_Loaded(sender, e);
+            appointmentData.ItemsSource = iServ.GetAllAppointments();
         }
 
         private void Button_DeleteAppointment(object sender, RoutedEventArgs e)
         {
             Appointment appointment = (Appointment)appointmentData.SelectedItem;
-            currentUser.Appointments.Remove(appointment);
-            iServ.DeleteAppointment(appointment);
-            appointmentData_Loaded(sender, e);
+            if (appointment != null)
+            {
+                currentUser.Appointments.Remove(appointment);
+                iServ.DeleteAppointment(appointment);
+                appointmentData_Loaded(sender, e);
+            }
         }
 
         public User CurrentUser 
