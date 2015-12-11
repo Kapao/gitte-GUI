@@ -232,19 +232,29 @@ namespace GUIApplication
                 }
             }
         }
-
-        public User CurrentUser
-        {
-            get { return currentUser; }
-            set { currentUser = value; }
-        }
-
         private void Button_UpdateAppointment(object sender, RoutedEventArgs e)
         {
             Appointment appointment = (Appointment)appointmentData.SelectedItem;
             UpdateAppointment window = new UpdateAppointment(appointment, this);
             window.Owner = this;
             window.Show();
+        }
+
+        public void UpdateUserList()
+        {
+            DateTime date = DateTime.Today;
+            List<Appointment> appointments = currentUser.Appointments.ToList();
+
+            List<Appointment> appointmentsToShow = new List<Appointment>();
+            foreach (Appointment ap in appointments)
+            {
+                if (ap.Date >= date)
+                {
+                    appointmentsToShow.Add(ap);
+                }
+            }
+            var grid = appointmentData as DataGrid;
+            grid.ItemsSource = appointmentsToShow;
         }
     }
 }

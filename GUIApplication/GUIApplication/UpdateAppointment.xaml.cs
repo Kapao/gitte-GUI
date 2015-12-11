@@ -45,12 +45,20 @@ namespace GUIApplication
             dpStartDate.Text = appointment.Date.ToString();
             cbCategory.SelectedItem = appointment.Category;
             txtSagsnr.Text = appointment.Id.ToString();
-            txtBuyerSubject.Text = appointment.Seller.Phone;
-            txtBuyer.Text = appointment.Buyer.Phone;
+            
+            if (seller != null)
+            {
+                txtBuyerSubject.Text = seller.Phone;
+            }
+            if (buyer != null)
+            {
+                txtBuyer.Text = buyer.Phone;
+            }
+
             //txtSubject =
             txtBoxDescription.Text = appointment.Description;
-            tpStartTime.Text = appointment.StarTime.ToString();
-            tpEndTime.Text = appointment.EndTime.ToString();
+            tpStartTime.Value = appointment.StarTime;
+            tpEndTime.Value = appointment.EndTime;
         }
 
 
@@ -62,23 +70,33 @@ namespace GUIApplication
 
         private void Button_Update(object sender, RoutedEventArgs e)
         {
-            User user = (User)cbUser.SelectedItem;
-            Buyer buyer = iServ.GetBuyerByPhone(txtBuyer.Text);
-            Seller seller = iServ.GetSellerByPhone(txtBuyerSubject.Text);
-            sourceWin.CurrentUser.Appointments.Remove(appointment);
+            user = (User)cbUser.SelectedItem;
+            if (user == null)
+            {
+                MessageBox.Show("Vælg en bruger");
+            }
+            else
+            {
+                try
+                {
 
-            string category = cbCategory.Text;
-            DateTime date = Convert.ToDateTime(dpStartDate.Text);
-            string description = txtBoxDescription.Text;
-            DateTime StartTime = tpStartTime.Value.Value;
-            DateTime EndTime = tpEndTime.Value.Value;
-            string status = "I gang";
-            int id = user.Id;
+                    string category = cbCategory.Text;
+                    DateTime date = Convert.ToDateTime(dpStartDate.Text);
+                    string description = txtBoxDescription.Text;
+                    DateTime StartTime = tpStartTime.Value.Value;
+                    DateTime EndTime = tpEndTime.Value.Value;
+                    string status = "I gang";
+                    int id = user.Id;
 
-
-            iServ.UpdateAppointment(appointment, date, StartTime, EndTime, category, description, status, seller, buyer);
-            sourceWin.CurrentUser.Appointments.Add(appointment);
-            this.Close();
+                    iServ.UpdateAppointment(appointment, date, StartTime, EndTime, category, description, status);
+                    sourceWin.UpdateUserList();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Dato og tidspunkt for aftalen skal være udfyldt korrekt." + ex);
+                }
+            }
         }
 
         private void cbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -123,6 +141,20 @@ namespace GUIApplication
             categories.Add("Åbent husarrangement");
 
             cbCategory.ItemsSource = categories;
+        }
+
+        private void btnSearchProperty_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new SearchProperty_Seller(null, this);
+            window.Owner = this;
+            window.Show();
+        }
+
+        private void btnSearchBuyer_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new SearchBuyerWindow(null, this);
+            window.Owner = this;
+            window.Show();
         }
     }
 }

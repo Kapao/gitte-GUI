@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="GUIApplication.UpdateAppointment"
-        Title="UpdateAppointment" Height="469.767" Width="540.698">
+        Title="UpdateAppointment" Height="469.767" Width="540.698"
+        WindowStartupLocation="CenterOwner">
     <Grid>
 
         <Label Name="lblStartDate" Content="Start dato:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -15,8 +16,8 @@
         <DatePicker Name="dpStartDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="84,12,0,0"/>
         <ComboBox Name="cbUser" HorizontalAlignment="Left" Margin="84,45,-43,0" VerticalAlignment="Top" Width="251" Loaded="cbUser_Loaded" SelectionChanged="cbUser_SelectionChanged"/>
         <ComboBox Name="cbCategory" HorizontalAlignment="Left" Margin="84,76,-43,0" VerticalAlignment="Top" Width="251" Loaded="cbCategory_Loaded" SelectionChanged="cbCategory_SelectionChanged"/>
-        <TextBox Name="txtSagsnr" HorizontalAlignment="Left" Height="23" Margin="84,106,-43,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251"/>
-        <TextBox Name="txtBuyerSubject" HorizontalAlignment="Left" Height="23" Margin="84,138,-43,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251"/>
+        <TextBox Name="txtSagsnr" HorizontalAlignment="Left" Height="23" Margin="84,106,-43,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" IsEnabled="False"/>
+        <TextBox Name="txtBuyerSubject" HorizontalAlignment="Left" Height="23" Margin="84,138,-43,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" IsEnabled="False"/>
         <TextBox Name="txtSubject" HorizontalAlignment="Left" Height="24" Margin="84,197.836,-43,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251"/>
         <Label Name="lblStartTime" Content="Starttid:" HorizontalAlignment="Left" Margin="10,303.836,0,-60.836" VerticalAlignment="Top"/>
         <ScrollViewer HorizontalAlignment="Left" Height="74" Margin="85,229.836,-218,-34.836" VerticalAlignment="Top" Width="425">
@@ -35,9 +36,7 @@
         <Button Content="OK" HorizontalAlignment="Left" Margin="10,401.836,0,-152.836" VerticalAlignment="Top" Width="75" Click="Button_Update"/>
         <Button Content="Annuller" HorizontalAlignment="Left" Margin="111,401.836,0,-152.836" VerticalAlignment="Top" Width="75" Click="Button_Cancel"/>
         <Label Name="lblBuyer" Content="Køber:" HorizontalAlignment="Left" Margin="10,164.836,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.568,0"/>
-        <TextBox Name="txtBuyer" HorizontalAlignment="Left" Height="23" Margin="84,167.836,-43,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251"/>
-        <Button Name="btnSearchBuyer" Content="..." HorizontalAlignment="Left" Margin="340,167.836,-68,0" VerticalAlignment="Top" Width="20" Height="23"/>
-        <Button Name="btnSearchProperty" Content="..." HorizontalAlignment="Left" Margin="340,138,-68,0" VerticalAlignment="Top" Width="20" Height="22"/>
-        <xctk:TimeSpanUpDown Name="tpDuration" HorizontalAlignment="Left" Margin="434,310,-218,-61" VerticalAlignment="Top" Height="20" Width="76"/>
+        <TextBox Name="txtBuyer" HorizontalAlignment="Left" Height="23" Margin="84,167.836,-43,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" IsEnabled="False"/>
+        <xctk:TimeSpanUpDown Name="tpDuration" HorizontalAlignment="Left" Margin="434,310,-218,-61" VerticalAlignment="Top" Height="20" Width="76" IsEnabled="False"/>
     </Grid>
 </Window>

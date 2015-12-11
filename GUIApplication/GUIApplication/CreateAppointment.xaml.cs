@@ -53,7 +53,7 @@ namespace GUIApplication
                         UserID = user.Id,
                     };
                     iServ.InsertAppointment(appointment, buyer, seller);
-                    sourceWin.CurrentUser.Appointments.Add(appointment);
+                    sourceWin.UpdateUserList();
                     this.Close();
                 }
                 catch (Exception ex)
@@ -195,14 +195,14 @@ namespace GUIApplication
 
         private void btnSearchProperty_Click(object sender, RoutedEventArgs e)
         {
-            Window searchWin = new SearchProperty_Seller(this);
+            Window searchWin = new SearchProperty_Seller(this, null);
             searchWin.Owner = this;
             searchWin.Show();
         }
 
         private void btnSearchBuyer_Click(object sender, RoutedEventArgs e)
         {
-            Window searchWin = new SearchBuyerWindow(this);
+            Window searchWin = new SearchBuyerWindow(this, null);
             searchWin.Owner = this;
             searchWin.Show();
         }
