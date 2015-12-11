@@ -1120,10 +1120,10 @@ namespace GUIApplication.ServiceReference {
         System.Threading.Tasks.Task<System.Collections.Generic.List<GUIApplication.ServiceReference.Appointment>> GetAllAppointmentsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateAppointment", ReplyAction="http://tempuri.org/IService/UpdateAppointmentResponse")]
-        void UpdateAppointment(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status, GUIApplication.ServiceReference.Seller seller, GUIApplication.ServiceReference.Buyer buyer);
+        void UpdateAppointment(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateAppointment", ReplyAction="http://tempuri.org/IService/UpdateAppointmentResponse")]
-        System.Threading.Tasks.Task UpdateAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status, GUIApplication.ServiceReference.Seller seller, GUIApplication.ServiceReference.Buyer buyer);
+        System.Threading.Tasks.Task UpdateAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteAppointment", ReplyAction="http://tempuri.org/IService/DeleteAppointmentResponse")]
         void DeleteAppointment(GUIApplication.ServiceReference.Appointment appointment);
@@ -1391,6 +1391,12 @@ namespace GUIApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserUserByPhone", ReplyAction="http://tempuri.org/IService/GetUserUserByPhoneResponse")]
         System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserUserByPhoneAsync(string phone);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserById", ReplyAction="http://tempuri.org/IService/GetUserByIdResponse")]
+        GUIApplication.ServiceReference.User GetUserById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserById", ReplyAction="http://tempuri.org/IService/GetUserByIdResponse")]
+        System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllUsers", ReplyAction="http://tempuri.org/IService/GetAllUsersResponse")]
         System.Collections.Generic.List<GUIApplication.ServiceReference.User> GetAllUsers();
         
@@ -1461,12 +1467,12 @@ namespace GUIApplication.ServiceReference {
             return base.Channel.GetAllAppointmentsAsync();
         }
         
-        public void UpdateAppointment(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status, GUIApplication.ServiceReference.Seller seller, GUIApplication.ServiceReference.Buyer buyer) {
-            base.Channel.UpdateAppointment(appointment, date, StartTime, EndTime, category, descricption, status, seller, buyer);
+        public void UpdateAppointment(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status) {
+            base.Channel.UpdateAppointment(appointment, date, StartTime, EndTime, category, descricption, status);
         }
         
-        public System.Threading.Tasks.Task UpdateAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status, GUIApplication.ServiceReference.Seller seller, GUIApplication.ServiceReference.Buyer buyer) {
-            return base.Channel.UpdateAppointmentAsync(appointment, date, StartTime, EndTime, category, descricption, status, seller, buyer);
+        public System.Threading.Tasks.Task UpdateAppointmentAsync(GUIApplication.ServiceReference.Appointment appointment, System.DateTime date, System.DateTime StartTime, System.DateTime EndTime, string category, string descricption, string status) {
+            return base.Channel.UpdateAppointmentAsync(appointment, date, StartTime, EndTime, category, descricption, status);
         }
         
         public void DeleteAppointment(GUIApplication.ServiceReference.Appointment appointment) {
@@ -1803,6 +1809,14 @@ namespace GUIApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserUserByPhoneAsync(string phone) {
             return base.Channel.GetUserUserByPhoneAsync(phone);
+        }
+        
+        public GUIApplication.ServiceReference.User GetUserById(int id) {
+            return base.Channel.GetUserById(id);
+        }
+        
+        public System.Threading.Tasks.Task<GUIApplication.ServiceReference.User> GetUserByIdAsync(int id) {
+            return base.Channel.GetUserByIdAsync(id);
         }
         
         public System.Collections.Generic.List<GUIApplication.ServiceReference.User> GetAllUsers() {

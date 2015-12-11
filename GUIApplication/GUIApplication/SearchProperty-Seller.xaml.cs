@@ -23,12 +23,20 @@ namespace GUIApplication
     {
         static IService iServ = new ServiceClient();
 
-        private CreateAppointment sourceWin;
+        private CreateAppointment caWin;
+        private UpdateAppointment uaWin;
 
-        public SearchProperty_Seller(CreateAppointment source)
+        public SearchProperty_Seller(CreateAppointment ca, UpdateAppointment ua)
         {
             InitializeComponent();
-            this.sourceWin = source;
+            if (ca != null)
+            {
+                this.caWin = ca;
+            }
+            if (ua != null)
+            {
+                this.uaWin = ua;
+            }
         }
 
         private void Button_Search(object sender, RoutedEventArgs e)
@@ -102,8 +110,15 @@ namespace GUIApplication
 
         private void Button_Choose(object sender, RoutedEventArgs e)
         {
-            sourceWin.txtBuyerSubject.Text = txtSellerPhone.Text;
-            this.Close();
+            if (caWin != null)
+            {
+                caWin.txtBuyerSubject.Text = txtSellerPhone.Text;
+            }
+            if (uaWin != null)
+            {
+                uaWin.txtBuyerSubject.Text = txtSellerPhone.Text;
+            }
+                this.Close();
         }
 
         //The following method uses a regular expression that checks if a string is of the datatype int(if it includes digets)
