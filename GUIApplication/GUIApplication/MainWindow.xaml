@@ -38,14 +38,6 @@
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Opgaver" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
-                    <Grid Background="#FFE5E5E5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0*"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </TabItem>
                 <TabItem Header="Kunder" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
                     <Grid Background="#FFE5E5E5">
 
